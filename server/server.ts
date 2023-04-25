@@ -15,6 +15,7 @@ const handleRequest = createPagesFunctionHandler({
       notion: new NotionService({
         auth: env.NOTION_API_KEY,
         database_id: env.NOTION_DATABASE_ID,
+        kv: context.env['notion-cache'],
       }),
     }
 

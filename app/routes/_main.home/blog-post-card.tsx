@@ -15,7 +15,7 @@ export function BlogPostCard(props: BlogPostCardProps) {
     <article>
       <div className="group relative aspect-[15/8] flex-shrink-0 overflow-hidden rounded-2xl bg-orange-600 bg-opacity-[0.15] text-stone-200 shadow-lg shadow-stone-600/[0.03] transition duration-200 after:pointer-events-none after:absolute after:bottom-0 after:left-0 after:right-0 after:top-0 after:bg-stone-400 after:bg-opacity-0 after:transition-colors after:duration-200 after:content-[''] hover:scale-[0.99] hover:shadow-md hover:shadow-stone-600/5 hover:after:bg-opacity-5">
         <a
-          href={props.url}
+          href={`blog/${props.url}`}
           className="flex h-full w-full items-center justify-center outline-none"
           aria-label={props.title}
         >
@@ -45,7 +45,7 @@ export function BlogPostCard(props: BlogPostCardProps) {
 
         <h3 className="mt-3 text-xl font-semibold tracking-tight">
           <a
-            href={props.url}
+            href={`blog/${props.url}`}
             className="outline-none transition-colors duration-200 hover:text-orange-600 hover:text-opacity-70"
           >
             {props.title}
@@ -53,7 +53,7 @@ export function BlogPostCard(props: BlogPostCardProps) {
         </h3>
 
         <p className="mt-2 text-stone-600">
-          <a href={props.url} className="outline-none">
+          <a href={`blog/${props.url}`} className="outline-none">
             {props.description}
           </a>
         </p>

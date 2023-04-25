@@ -19,7 +19,16 @@ export async function loader({ params, context }: LoaderArgs) {
         status: 404,
       })
     },
-    Just: p => json({ page: p }),
+    Just: p =>
+      json(
+        { page: p },
+        {
+          headers: {
+            'Cache-Control':
+              'public, max-age=86400, s-maxage=86400, stale-while-revalidate=86400',
+          },
+        }
+      ),
   })
 }
 

@@ -2,13 +2,21 @@ import type { LoaderArgs } from '@remix-run/cloudflare'
 import { json } from '@remix-run/cloudflare'
 
 import { useLoaderData, useNavigation } from '@remix-run/react'
-import { Spinner } from '~/components/ui/spinner'
+
 import { BlogPostRow } from '~/components/shared/blog-post-row'
 
 export const loader = async ({ context }: LoaderArgs) => {
   const posts = await context.services.notion.getPublishedPosts()
 
-  return json({ posts })
+  return json(
+    { posts },
+    {
+      headers: {
+        'Cache-Control':
+          'public, max-age=86400, s-maxage=86400, stale-while-revalidate=86400',
+      },
+    }
+  )
 }
 
 export default function BlogIndexPage() {

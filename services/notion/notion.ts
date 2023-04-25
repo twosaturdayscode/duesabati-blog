@@ -15,6 +15,7 @@ import { Nothing, head } from 'pratica'
 interface NotionServiceConstructor {
   auth: string
   database_id: string
+  kv: KVNamespace
 }
 
 export class NotionService implements BlogService {
@@ -22,11 +23,13 @@ export class NotionService implements BlogService {
 
   private notion: NotionClient
   private notionToMarkdown: NotionToMarkdown
+  private kv: KVNamespace
 
-  constructor({ auth, database_id }: NotionServiceConstructor) {
+  constructor({ auth, database_id, kv }: NotionServiceConstructor) {
     this.notion = new NotionClient({ auth })
     this.database_id = database_id
     this.notionToMarkdown = new NotionToMarkdown({ notionClient: this.notion })
+    this.kv = kv
   }
 
   async getPublishedPosts(options?: GetPublishedPostsOptions) {
