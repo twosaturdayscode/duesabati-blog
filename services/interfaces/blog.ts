@@ -14,9 +14,18 @@ export const BlogPostSchema = z.object({
 
 export type BlogPost = z.infer<typeof BlogPostSchema>
 
-export interface BlogPostPage extends BlogPost {
-  content: string
-}
+export const BlogPostPageSchema = z.object({
+  id: z.string(),
+  slug: z.string(),
+  image: z.string(),
+  tags: z.array(z.string()),
+  title: z.string(),
+  publishedAt: z.coerce.date(),
+  description: z.string(),
+  status: z.union([z.literal('published'), z.literal('draft')]),
+})
+
+export type BlogPostPage = z.infer<typeof BlogPostPageSchema>
 
 export interface GetPublishedPostsOptions {
   page?: number

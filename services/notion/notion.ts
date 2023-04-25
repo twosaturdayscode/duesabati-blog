@@ -5,12 +5,14 @@ import type {
   BlogService,
   GetPublishedPostsOptions,
 } from '@/interfaces/blog'
+import { BlogPostPageSchema } from '@/interfaces/blog'
 import { BlogPostSchema } from '@/interfaces/blog'
 import { Client as NotionClient, isFullPage } from '@notionhq/client'
 import { NotionToMarkdown } from 'notion-to-md'
 import type { ValidProperties } from '@/notion/validation'
 import { validatePageProperties } from '@/notion/validation'
 import type { Maybe } from 'pratica'
+import { encase } from 'pratica'
 import { Nothing, head } from 'pratica'
 
 interface NotionServiceConstructor {
@@ -35,8 +37,6 @@ export class NotionService implements BlogService {
 
   async getPublishedPosts(options?: GetPublishedPostsOptions) {
     const cachedResults = await this.kv.get('blog:all-posts', 'json')
-
-    console.log(cachedResults)
 
     if (cachedResults != null) {
       try {
@@ -99,6 +99,12 @@ export class NotionService implements BlogService {
   }
 
   async getPostBySlug(slug: string): Promise<Maybe<BlogPostPage>> {
+    const cachedResults = await this.kv.get(`blog:${slug}`, 'json')
+
+    if (cachedResults != null) {
+      return encase(() => BlogPostPageSchema.parse(cachedResults))
+    }
+
     const { results } = await this.notion.databases.query({
       database_id: this.database_id,
       filter: {
@@ -113,7 +119,7 @@ export class NotionService implements BlogService {
 
     if (results.length === 0) return Nothing
 
-    return head(
+    const post: Maybe<BlogPostPage> = head(
       await Promise.all(
         results
           .filter((r): r is PageObjectResponse => isFullPage(r))
@@ -150,6 +156,14 @@ export class NotionService implements BlogService {
           })
       )
     )
+
+    if (post.isJust()) {
+      this.kv.put(`blog:${slug}`, JSON.stringify(post), {
+        expirationTtl: 60 * 60 * 24,
+      })
+    }
+
+    return post
   }
 
   async getPostsByTags(tags: string[]): Promise<BlogPost[]> {
