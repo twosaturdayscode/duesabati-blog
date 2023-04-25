@@ -7,7 +7,7 @@ export const BlogPostSchema = z.object({
   image: z.string(),
   tags: z.array(z.string()),
   title: z.string(),
-  publishedAt: z.date(),
+  publishedAt: z.coerce.date(),
   description: z.string(),
   status: z.union([z.literal('published'), z.literal('draft')]),
 })

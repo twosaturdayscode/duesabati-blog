@@ -36,8 +36,15 @@ export class NotionService implements BlogService {
   async getPublishedPosts(options?: GetPublishedPostsOptions) {
     const cachedResults = await this.kv.get('blog:all-posts', 'json')
 
-    if (cachedResults != null)
-      return BlogPostSchema.array().parse(cachedResults)
+    console.log(cachedResults)
+
+    if (cachedResults != null) {
+      try {
+        return BlogPostSchema.array().parse(cachedResults)
+      } catch (error) {
+        console.log(error)
+      }
+    }
 
     const { results } = await this.notion.databases.query({
       database_id: this.database_id,
