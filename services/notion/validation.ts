@@ -118,7 +118,7 @@ function validateImageProp(props: PageObjectResponse['properties']) {
   })
 }
 
-export type PageWithValidProperties = {
+export type ValidProperties = {
   title: {
     id: string
     type: 'rich_text'
@@ -155,7 +155,7 @@ export type PageWithValidProperties = {
   image: {
     id: string
     type: 'file'
-    files: { file: { url: string } }[]
+    files: { name: string; file: { url: string } }[]
   }
 }
 
@@ -169,8 +169,5 @@ export function validatePageProperties(
     .chain(validateTagsProp)
     .chain(validateStatusProp)
     .chain(validateImageProp)
-    .chain(validatePublishedAtProp) as unknown as Result<
-    PageWithValidProperties,
-    Error
-  >
+    .chain(validatePublishedAtProp) as unknown as Result<ValidProperties, Error>
 }

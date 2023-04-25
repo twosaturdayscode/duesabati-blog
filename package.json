@@ -8,7 +8,7 @@
     "dev": "npm-run-all build --parallel \"dev:*\"",
     "start": "cross-env NODE_ENV=production npm run wrangler",
     "typecheck": "tsc",
-    "wrangler": "wrangler pages dev --live-reload ./public --kv notion-cache"
+    "wrangler": "wrangler pages dev --live-reload ./public --kv notion_cache --r2 images_cache"
   },
   "dependencies": {
     "@notionhq/client": "^2.2.3",

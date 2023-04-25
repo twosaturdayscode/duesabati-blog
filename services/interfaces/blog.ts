@@ -1,15 +1,18 @@
 import type { Maybe } from 'pratica'
+import { z } from 'zod'
 
-export interface BlogPost {
-  id: string
-  slug: string
-  image: string
-  tags: string[]
-  title: string
-  publishedAt: Date
-  description: string
-  status: 'published' | 'draft'
-}
+export const BlogPostSchema = z.object({
+  id: z.string(),
+  slug: z.string(),
+  image: z.string(),
+  tags: z.array(z.string()),
+  title: z.string(),
+  publishedAt: z.date(),
+  description: z.string(),
+  status: z.union([z.literal('published'), z.literal('draft')]),
+})
+
+export type BlogPost = z.infer<typeof BlogPostSchema>
 
 export interface BlogPostPage extends BlogPost {
   content: string

@@ -8,7 +8,7 @@ export function Hero() {
           <h1 className="mb-3 animate-fade-rotate-in-lg text-4xl font-bold tracking-tight text-stone-700 sm:text-5xl">
             Ciao! I'm Ali
           </h1>
-          <h2 className="max-w-sm animate-fade-rotate-in text-lg text-stone-600 animation-delay-100">
+          <h2 className="max-w-sm animate-fade-rotate-in text-lg text-stone-600 opacity-0 animation-delay-100">
             a{' '}
             <mark className="font-medium shadow-mark">
               full-stack web developer
