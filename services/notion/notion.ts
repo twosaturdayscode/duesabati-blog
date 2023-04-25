@@ -158,7 +158,7 @@ export class NotionService implements BlogService {
     )
 
     if (post.isJust()) {
-      this.kv.put(`blog:${slug}`, JSON.stringify(post), {
+      this.kv.put(`blog:${slug}`, JSON.stringify(post.value()), {
         expirationTtl: 60 * 60 * 24,
       })
     }

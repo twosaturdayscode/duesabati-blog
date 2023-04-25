@@ -23,6 +23,7 @@ export const BlogPostPageSchema = z.object({
   publishedAt: z.coerce.date(),
   description: z.string(),
   status: z.union([z.literal('published'), z.literal('draft')]),
+  content: z.string(),
 })
 
 export type BlogPostPage = z.infer<typeof BlogPostPageSchema>
