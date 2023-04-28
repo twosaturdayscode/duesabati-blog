@@ -44,34 +44,52 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="absolute right-56 top-12 hidden w-56 scale-95 animate-scale-in-rotate select-none whitespace-pre font-hand text-2xl text-stone-400 md:block">
+        <div className="absolute right-56 top-12 hidden w-56 scale-95 animate-scale-in-rotate select-none whitespace-pre font-hand text-2xl text-stone-400 lg:block">
           <span className="animate-fade-blur-in opacity-0 blur-sm animation-delay-[400ms]">
-            Every{' '}
+            Verily,{' '}
           </span>
           <span className="animate-fade-blur-in opacity-0 blur-sm animation-delay-[500ms]">
-            great{' '}
+            God{' '}
           </span>
           <span className="animate-fade-blur-in opacity-0 blur-sm animation-delay-[600ms]">
-            design{' '}
+            loves{' '}
           </span>
           <span className="animate-fade-blur-in opacity-0 blur-sm animation-delay-[700ms]">
-            begins{' '}
+            if{' '}
           </span>
-          <br />
           <span className="animate-fade-blur-in opacity-0 blur-sm animation-delay-[800ms]">
-            with{' '}
+            any{' '}
           </span>
           <span className="animate-fade-blur-in opacity-0 blur-sm animation-delay-[900ms]">
-            an{' '}
+            of{' '}
           </span>
           <span className="animate-fade-blur-in opacity-0 blur-sm animation-delay-[1000ms]">
-            even{' '}
+            you{' '}
           </span>
           <span className="animate-fade-blur-in opacity-0 blur-sm animation-delay-[1100ms]">
-            better{' '}
+            does{' '}
           </span>
           <span className="animate-fade-blur-in opacity-0 blur-sm animation-delay-[1200ms]">
-            story{' '}
+            a{' '}
+          </span>
+          <span className="animate-fade-blur-in opacity-0 blur-sm animation-delay-[1300ms]">
+            job,{' '}
+          </span>
+          <br />
+          <span className="animate-fade-blur-in opacity-0 blur-sm animation-delay-[1400ms]">
+            he{' '}
+          </span>
+          <span className="animate-fade-blur-in opacity-0 blur-sm animation-delay-[1500ms]">
+            does{' '}
+          </span>
+          <span className="animate-fade-blur-in opacity-0 blur-sm animation-delay-[1600ms]">
+            it{' '}
+          </span>
+          <span className="animate-fade-blur-in opacity-0 blur-sm animation-delay-[1700ms]">
+            with{' '}
+          </span>
+          <span className="animate-fade-blur-in opacity-0 blur-sm animation-delay-[1800ms]">
+            perfection.{' '}
           </span>
         </div>
       </div>

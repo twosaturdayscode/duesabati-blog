@@ -19,15 +19,13 @@ export function BlogPostCard(props: BlogPostCardProps) {
           className="flex h-full w-full items-center justify-center outline-none"
           aria-label={props.title}
         >
-          <div className="select-none overflow-hidden p-6">
-            <img
-              className="h-full w-full overflow-hidden"
-              src={props.image}
-              alt={props.title}
-              width="1920"
-              height="1024"
-            />
-          </div>
+          <img
+            className="h-full w-full overflow-hidden p-6"
+            src={props.image}
+            alt={props.title}
+            width="1920"
+            height="1024"
+          />
         </a>
       </div>
       <div className="px-1.5">

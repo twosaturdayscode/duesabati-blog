@@ -1,18 +1,37 @@
 export default function AboutMe() {
   return (
     <main className=" w-full min-w-0 max-w-4xl px-6 py-12 pt-4 md:px-8">
-      <div className="mb-20 mt-8 text-lg text-stone-600 md:mt-24">
-        <h1
-          className="h1 mb-4 w-full text-5xl font-bold text-stone-700 sm:text-4xl md:text-5xl lg:text-6xl xl:col-span-12 xl:col-start-4"
-          id="about-me"
-        >
-          about me
-        </h1>
-        <p className="mb-4 xl:col-span-12 xl:col-start-4">
-          I'm a full-stack web developer based in Milano, Italy working at{' '}
+      <div className="mb-20 mt-8 text-lg text-stone-500 md:mt-24">
+        <div className="mb-10 flex flex-row-reverse items-center">
+          <h1
+            className="mb-4 w-full animate-fade-rotate-in-lg text-5xl font-bold text-stone-700 sm:text-4xl md:text-5xl lg:text-6xl xl:col-span-12 xl:col-start-4"
+            id="about-me"
+          >
+            about me
+          </h1>
+
+          <div className="hidden w-64 animate-fade-slide-in opacity-0 lg:block">
+            <img src="/assets/sheet.svg" alt="" className="object-contain" />
+          </div>
+        </div>
+
+        <p className="mb-4 animate-fade-rotate-in xl:col-span-12 xl:col-start-4">
+          Hello there! My name is Alì (like Alì Baba or Muhammad Alì), and I'm a
+          full-stack web developer based in Milan, Italy. I'm passionate about
+          all aspects of product development, but I have a particular affinity
+          for <span className="shadow-mark">UX/UI design</span> and{' '}
+          <span className="shadow-mark">domain-driven design</span>. Throughout
+          my career, I've primarily worked as a front-end developer using React.
+          However, I pride myself on being a jack of all trades and a master of
+          one.
+        </p>
+
+        <p className="mb-4 animate-fade-rotate-in xl:col-span-12 xl:col-start-4">
+          I'm constantly learning and expanding my skillset to become a more
+          well-rounded product developer. Currently, I work at{' '}
           <a
             draggable="false"
-            className="inline-block max-w-[100vw] flex-shrink-0 select-none bg-transparent text-base"
+            className="inline-block max-w-[100vw] flex-shrink-0 select-none bg-transparent text-base shadow-mark"
             target="_blank"
             rel="noopener noreferrer"
             href="https://vas.it/"
@@ -24,26 +43,26 @@ export default function AboutMe() {
               VAS
             </span>
           </a>
-          . I am passionate about all round product development.
-        </p>
-        <p className=" mb-4 text-lg xl:col-span-12 xl:col-start-4">
-          I love programming and I find it the most intriguing activity to do in
-          this world. Taking the time to <b>read the problem</b>, finding a{' '}
-          <b>creative solution</b>, <b>learning</b> the skills to{' '}
-          <b>execute it</b>, foster it and admire its growth and development:
-          super exciting!
+          , where I have the opportunity to develop and implement well-thought
+          web applications for a wide range of clients in the domain of
+          educational technology. My goal is to create the infrastructure to
+          create the most user-friendly and seamless experience for our
+          products.
         </p>
 
-        <p className="mb-4 xl:col-span-12 xl:col-start-4">
-          Beside work, I enjoy pondering about faith, philosophy and life in
-          general, I could spend days talking and exchanging thoughts and ideas
-          without never getting bored.
+        <p className="mb-4 animate-fade-rotate-in xl:col-span-12 xl:col-start-4">
+          When I'm not busy coding, you can find me walking in the park with my
+          son, trying out new sushi restaurants with my wife, or reading up on
+          the latest industry trends.
         </p>
 
-        <p className="mb-4 xl:col-span-12 xl:col-start-4">
-          I have been blessed with a loving wife with whom I've watched a lot of
-          k-dramas when we had time for it, now we are full-time wild-keepers of
-          a lovely little beast.
+        <p className="mb-4 animate-fade-rotate-in xl:col-span-12 xl:col-start-4">
+          Thank you for taking the time to get to know me a little better. If
+          you're interested in learning more about my work or would like to
+          collaborate on a project,{' '}
+          <span className="shadow-mark">
+            please don't hesitate to reach out!
+          </span>
         </p>
       </div>
     </main>
