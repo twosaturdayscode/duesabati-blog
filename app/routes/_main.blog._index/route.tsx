@@ -4,6 +4,7 @@ import { json } from '@remix-run/cloudflare'
 import { useLoaderData, useNavigation } from '@remix-run/react'
 
 import { BlogPostRow } from '~/components/shared/blog-post-row'
+import { CommonCacheControl } from '~/config'
 
 export const loader = async ({ context }: LoaderArgs) => {
   const posts = await context.services.notion.getPublishedPosts()
@@ -12,8 +13,7 @@ export const loader = async ({ context }: LoaderArgs) => {
     { posts },
     {
       headers: {
-        'Cache-Control':
-          'public, max-age=86400, s-maxage=86400, stale-while-revalidate=86400',
+        ...CommonCacheControl,
       },
     }
   )

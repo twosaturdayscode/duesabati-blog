@@ -7,6 +7,7 @@ import { SimpleDate } from '~/components/ui/simple-date'
 import { BackButton } from '~/routes/_main.blog.$slug/back-button'
 import invariant from 'tiny-invariant'
 import { MarkdownContent } from '~/routes/_main.blog.$slug/markdown-content'
+import { CommonCacheControl } from '~/config'
 
 export async function loader({ params, context }: LoaderArgs) {
   invariant(params.slug)
@@ -24,8 +25,7 @@ export async function loader({ params, context }: LoaderArgs) {
         { page: p },
         {
           headers: {
-            'Cache-Control':
-              'public, max-age=86400, s-maxage=86400, stale-while-revalidate=86400',
+            ...CommonCacheControl,
           },
         }
       ),

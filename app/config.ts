@@ -19,3 +19,8 @@ export const config = {
     },
   },
 }
+
+export const CommonCacheControl = {
+  'Cache-Control':
+    'public, max-age=600, s-maxage=86400, stale-while-revalidate=31556952',
+}
