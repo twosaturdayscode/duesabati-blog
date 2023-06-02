@@ -1,19 +1,19 @@
 import type { PageObjectResponse } from '@notionhq/client/build/src/api-endpoints'
-import type {
-  BlogPost,
-  BlogPostPage,
-  BlogService,
-  GetPublishedPostsOptions,
+import {
+  type BlogPost,
+  type BlogPostPage,
+  type BlogService,
+  type GetPublishedPostsOptions,
+  BlogPostPageSchema,
+  BlogPostSchema,
 } from '@/interfaces/blog'
-import { BlogPostPageSchema } from '@/interfaces/blog'
-import { BlogPostSchema } from '@/interfaces/blog'
 import { Client as NotionClient, isFullPage } from '@notionhq/client'
 import { NotionToMarkdown } from 'notion-to-md'
-import type { ValidProperties } from '@/notion/validation'
-import { validatePageProperties } from '@/notion/validation'
-import type { Maybe } from 'pratica'
-import { encase } from 'pratica'
-import { Nothing, head } from 'pratica'
+import {
+  type ValidProperties,
+  validatePageProperties,
+} from '@/notion/validation'
+import { type Maybe, encase, Nothing, head } from 'pratica'
 
 interface NotionServiceConstructor {
   auth: string
